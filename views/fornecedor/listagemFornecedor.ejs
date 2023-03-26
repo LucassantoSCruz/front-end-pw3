@@ -1,0 +1,31 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <!-- IMPORTAÇÃO DO MENU -->
+    <div class="container-fluid">
+        <%- include('../partials/menu') %>
+    </div>
+
+    <div class="card">
+        <div class="card-header">LISTAGEM DE FORNECEDORES</div>
+    </div>
+
+    <% fornecedores.data.forEach(fornecedor=>{ %>
+
+        <div class="card mt-2 p-1">
+
+            <div class="card-body">
+                <%= fornecedor.nome_fornecedor %>
+            </div>
+
+            <div class="btn-group mr-2">
+                <button class="btn btn-warning">EDITAR</button>
+                <button class="btn btn-danger">EXCLUIR</button>
+            </div>
+
+        </div>
+
+        <% }) %>
+
+<!-- IMPORTAÇÃO DO FOOTER -->
+<%- include('../partials/footer') %>

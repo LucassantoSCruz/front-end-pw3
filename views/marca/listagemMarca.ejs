@@ -1,0 +1,32 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <!-- IMPORTAÇÃO DO MENU -->
+    <div class="container-fluid">
+        <%- include('../partials/menu') %>
+    </div>
+
+    <div class="card">
+        <div class="card-header">LISTAGEM DE MARCAS</div>
+    </div>
+
+    <% marcas.data.forEach(marca=>{ %>
+
+        <div class="card mt-2 p-1">
+
+            <div class="card-body">
+                <%= marca.nome_marca %>
+            </div>
+
+            <div class="btn-group mr-2">
+                <button class="btn btn-warning">EDITAR</button>
+                <button class="btn btn-danger">EXCLUIR</button>
+            </div>
+
+        </div>
+
+        <% }) %>
+
+
+<!-- IMPORTAÇÃO DO FOOTER -->
+<%- include('../partials/footer') %>

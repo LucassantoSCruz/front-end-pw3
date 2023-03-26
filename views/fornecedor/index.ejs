@@ -1,0 +1,29 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <!-- IMPORTAÇÃO DO MENU -->
+    <div class="container-fluid">
+        <%- include('../partials/menu') %>
+
+        <div class="card">
+            <div class="card-body">
+
+                <form action="http://localhost:3000/cadastrarFornecedor" method="post">
+
+                    <h5 class="card-title">CADASTRO DE FORNECEDOR</h5>
+
+                    <label for="nome_fornecedor"></label>
+                    <input class="form-control" type="text" name="nome_fornecedor" id="nome_fornecedor" placeholder="NOME DE FORNECEDOR">
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+<!-- IMPORTAÇÃO DO FOOTER -->
+<%- include('../partials/footer') %>

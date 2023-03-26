@@ -1,0 +1,27 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <div class="container-fluid">
+        <!-- IMPORTAÇÃO DO MENU -->
+        <%- include('../partials/menu') %>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <form action="http://localhost:3000/cadastrarCategoria" method="post">
+
+                        <h5 class="card-title">CADASTRO DE CATEGORIA</h5>
+
+                        <label for="nome_categoria"></label>
+                        <input class="form-control" type="text" name="nome_categoria" id="nome_categoria" placeholder="NOME DE CATEGORIA">
+                        <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+    </div>
+
+    <!-- IMPORTAÇÃO DO FOOTER -->
+    <%- include('../partials/footer') %>

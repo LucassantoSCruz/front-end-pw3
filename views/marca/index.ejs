@@ -1,0 +1,27 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <div class="container-fluid">
+        <!-- IMPORTAÇÃO DO MENU -->
+        <%- include('../partials/menu') %>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <form action="http://localhost:3000/cadastrarMarca" method="post">
+
+                        <h5 class="card-title">CADASTRO DE MARCA</h5>
+
+                        <label for="nome_marca"></label>
+                        <input class="form-control" type="text" name="nome_marca" id="nome_marca" placeholder="NOME DE MARCA">
+                        <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+    </div>
+
+<!-- IMPORTAÇÃO DO FOOTER -->
+<%- include('../partials/footer') %>
