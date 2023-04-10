@@ -1,0 +1,32 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <!-- IMPORTAÇÃO DO MENU -->
+    <div class="container-fluid">
+        <%- include('../partials/menu') %>
+    </div>
+
+    <div class="card">
+        <div class="card-header">EDITAR CATEGORIAS</div>
+    </div>
+
+        <!-- <%= categoria.data.nome_categoria %>
+                    <%= categoria.data.cod_categoria %> -->
+
+    <div class="card-body">
+
+        <form action="/editarCategoria" method="post">
+
+            <label for="nome_categoria"></label>
+            <input class="form-control" type="text" name="nome_categoria" id="nome_categoria"
+                value="<%= categoria.data.nome_categoria %>" />
+
+            <input type="hidden" name="cod_categoria" value="<%= categoria.data.cod_categoria %>">
+
+            <button class="btn btn-success mt-2">EDITAR</button>
+
+        </form>
+
+    </div>
+
+    </div>
