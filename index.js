@@ -182,6 +182,45 @@ app.get('/listagemMarcas', (req, res) => {
         })
 })
 
+/* ALTERAÇÃO DE MARCA */
+app.get('/editarMarca/:cod_marca', (req, res) => {
+
+    let {cod_marca} = req.params;
+
+    urlListarMarcaPK = `http://localhost:3000/listarMarcaPK/${cod_marca}`
+
+    axios.get(urlListarMarcaPK)
+        .then((response) => {
+
+            let marca = response.data;
+            console.log(marca.data)
+            res.render('marca/editarMarca', { marca })
+        })
+})
+
+app.post('/editarMarca', (req, res) => {
+    
+    let urlEditarMarca = 'http://localhost:3000/alterarMarca'
+
+    axios.put(urlEditarMarca, req.body)
+        .then((response) => {
+            res.redirect('/listagemMarcas')
+        })
+})
+
+/* EXCLUSÃO DE MARCA */
+app.get('/excluirMarca/:cod_marca', (req, res) => {
+    
+    let { cod_marca } = req.params;
+
+    const urlExcluirMarca = `http://localhost:3000/excluirMarca/${cod_marca}`
+
+    axios.delete(urlExcluirMarca)
+        .then((response)=>{
+            res.redirect('/listagemMarcas')
+        })
+})
+
 /* FIM DAS ROTAS DE MARCA */
 app.listen(3001, () => {
     console.log("SERVIDOR FRONTEND RODANDO EM http://localhost:3001")
