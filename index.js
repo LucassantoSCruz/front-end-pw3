@@ -69,13 +69,27 @@ app.get('/editarCategoria/:cod_categoria', (req, res) => {
 
 app.post('/editarCategoria', (req, res) => {
 
-    let urlEditar = 'http://localhost:3000/alterarCategoria'
+    let urlEditarCategoria = 'http://localhost:3000/alterarCategoria'
 
-    axios.put(urlEditar, req.body)
-        .then((response)=> {
+    axios.put(urlEditarCategoria, req.body)
+        .then((response) => {
             res.redirect('/listagemCategorias')
         })
 })
+
+/* EXCLUSÃO DE CATEGORIAS */
+app.get('/excluirCategoria/:cod_categoria', (req, res) => {
+
+    let { cod_categoria } = req.params;
+
+    const urlExcluirCategoria = `http://localhost:3000/excluirCategoria/${cod_categoria}`
+
+    axios.delete(urlExcluirCategoria)
+        .then((respose) => {
+            res.redirect('/listagemCategorias');
+        })
+})
+
 /* FIM DAS ROTAS DE CATEGORIA */
 
 
@@ -103,8 +117,47 @@ app.get('/listagemFornecedores', (req, res) => {
 
 })
 
-/* FIM DAS ROTAS DE FORNECEDOR */
+/* ALTERAÇÃO DE FORNECEDOR */
+app.get('/editarFornecedor/:cod_fornecedor', (req, res) => {
 
+    let { cod_fornecedor } = req.params;
+
+    urlListarFornecedorPK = `http://localhost:3000/listarFornecedorPK/${cod_fornecedor}`
+
+    axios.get(urlListarFornecedorPK)
+        .then((response) => {
+
+            let fornecedor = response.data;
+            console.log(fornecedor.data)
+            res.render('fornecedor/editarFornecedor', { fornecedor });
+
+        })
+});
+
+app.post('/editarFornecedor', (req, res) => {
+
+    let urlEditarFornecedor = 'http://localhost:3000/alterarFornecedor'
+
+    axios.put(urlEditarFornecedor, req.body)
+        .then((response)=>{
+            res.redirect('/listagemFornecedores')
+        })
+})
+
+/* EXCLUSÃO DE FORNECEDOR */
+app.get('/excluirFornecedor/:cod_fornecedor', (req, res) => {
+
+    let {cod_fornecedor} = req.params;
+
+    const urlExcluirFornecedor = `http://localhost:3000/excluirFornecedor/${cod_fornecedor}`;
+
+    axios.delete(urlExcluirFornecedor)
+        .then((response)=>{
+            res.redirect('/listagemFornecedores')
+        })
+})
+
+/* FIM DAS ROTAS DE FORNECEDOR */
 
 
 /* INICIO DAS ROTAS DE MARCA */

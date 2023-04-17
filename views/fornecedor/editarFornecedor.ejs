@@ -1,0 +1,42 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('../partials/header') %>
+
+    <!-- IMPORTAÇÃO DO MENU -->
+    <div class="container-fluid">
+        <%- include('../partials/menu') %>
+    </div>
+
+    <div class="card">
+        <div class="card-header">EDITAR FORNECEDOR</div>
+    </div>
+
+    <!-- <%= fornecedor.data.nome_fornecedor %>
+    <%= fornecedor.data.cod_fornecedor %> -->
+
+    <div class="card mt-2 p-1">
+
+        <form action="/editarFornecedor" method="post">
+
+            <label for="nome_fornecedor"></label>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" name="nome_fornecedor" id="nome_fornecedor" value="<%= fornecedor.data.nome_fornecedor %>" />
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" name="email_fornecedor" id="email_fornecedor" value="<%= fornecedor.data.email_fornecedor %>" />
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="text" name="tel_fornecedor" id="tel_fornecedor" value="<%= fornecedor.data.tel_fornecedor %>" />
+            </div>
+
+            <input type="hidden" name="cod_fornecedor" value="<%= fornecedor.data.cod_fornecedor %>">
+
+            <button class="btn btn-success mt-2">EDITAR</button>
+
+        </form>
+
+    </div>
+
+    </div>
